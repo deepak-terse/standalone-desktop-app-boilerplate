@@ -14,16 +14,17 @@
     },
     "homepage": "https://github.com/deepak-terse/standalone-desktop-app-boilerplate#readme",
     "scripts": {
-        "start": "gulp"
+        "start": "gulp",
+        "build:dist:1": "electron-builder"
     },
     "dependencies": {
         "@babel/plugin-proposal-class-properties": "^7.12.1",
         "gulp-cli": "^2.3.0",
         "gulp-livereload": "^4.0.2",
-        "node-sass": "^5.0.0",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "react-scripts": "4.0.1",
+        "sqlite3": "^5.0.1",
         "typescript": "^4.1.3"
     },
     "devDependencies": {

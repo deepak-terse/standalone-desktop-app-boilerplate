@@ -42,6 +42,11 @@ gulp.task('images', () => {
         .pipe(livereload());
 })
 
+gulp.task('directories', function () {
+    return gulp.src('db/*')
+        .pipe(gulp.dest('app/'))
+});
+
 
 //5. Watch files
 gulp.task('watch', async function() {
@@ -51,10 +56,12 @@ gulp.task('watch', async function() {
     gulp.watch('src/**/*.js*', gulp.series('js*'));
     gulp.watch('src/**/*.ts*', gulp.series('ts*'));
     gulp.watch('src/assets/**/*', gulp.series('images'));
+    gulp.watch('db/*', gulp.series('directories'));
 });
 
 //6. Send to app folder
-gulp.task('build', gulp.series('html', 'css', 'js*', 'ts*', 'images'));
+// gulp.task('build', gulp.series('html', 'css', 'js*', 'ts*', 'images'));
+gulp.task('build', gulp.series('html', 'css', 'js*', 'ts*', 'images', 'directories'));
 
 //7. Start the electron process.
 gulp.task('start', gulp.series('build', () => {

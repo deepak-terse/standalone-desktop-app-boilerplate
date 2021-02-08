@@ -1,0 +1,76 @@
+{
+    "name": "standalone-desktop-app-boilerplate",
+    "version": "1.0.0",
+    "description": "A boilerplate to build standalone desktop app with electron, react and sqlite",
+    "main": "app/main.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/deepak-terse/standalone-desktop-app-boilerplate.git"
+    },
+    "author": "Deepak Terse",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/deepak-terse/standalone-desktop-app-boilerplate/issues"
+    },
+    "homepage": "https://github.com/deepak-terse/standalone-desktop-app-boilerplate#readme",
+    "scripts": {
+        "start": "gulp"
+    },
+    "dependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.12.1",
+        "gulp-cli": "^2.3.0",
+        "gulp-livereload": "^4.0.2",
+        "node-sass": "^5.0.0",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-scripts": "4.0.1",
+        "typescript": "^4.1.3"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.9",
+        "@babel/preset-env": "^7.12.7",
+        "@babel/preset-react": "^7.12.7",
+        "electron": "^8.2",
+        "electron-builder": "^22.9.1",
+        "gulp": "^4.0.2",
+        "gulp-babel": "^8.0.0",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-sass": "^4.1.0"
+    },
+    "build": {
+        "asar": true,
+        "extends": null,
+        "publish": null,
+        "appId": "com.standalonedesktop.app",
+        "compression": "maximum",
+        "productName": "Standalone Desktop App",
+        "win": {
+            "target": [
+                "nsis",
+                "msi"
+            ],
+            "icon": "./app/assets/ico/icon.ico"
+        },
+        "nsis": {
+            "shortcutName": "Standalone Desktop App",
+            "artifactName": "Setup ${productName} v${version}.${ext}",
+            "installerIcon": "./app/assets/ico/icon.ico",
+            "oneClick": true,
+            "perMachine": true,
+            "allowElevation": true,
+            "runAfterFinish": true,
+            "createDesktopShortcut": true,
+            "createStartMenuShortcut": true,
+            "deleteAppDataOnUninstall": true,
+            "allowToChangeInstallationDirectory": false
+        },
+        "directories": {
+            "buildResources": "./app"
+        },
+        "files": [
+            "package.json",
+            "app/**/*"
+        ]
+    }
+}
